@@ -8,8 +8,7 @@ A empresa IVECO tem uma meta clara de reduzir emissões, aquelas geradas em sua 
 
 ## Solução --
 Nossa solução é um passaporte digital chamado **Green Roots**, um ecossistema completo que cria um registro único, auditável e detalhado para os componentes críticos do caminhão,
-desde a origem até a linha de montagem.A solução Green Roots foi projetada para não ser um sistema isolado, mas sim um módulo estratégico que se integra perfeitamente ao ecossistema de 
-gestão que a IVECO já possui.É instalada diretamente na linha de produção do fornecedor, capturando os dados das matérias-primas.
+desde a origem até a linha de montagem.A solução Green Roots foi projetada para não ser um sistema isolado, mas sim um módulo estratégico que se integra perfeitamente ao ecossistema de gestão que a IVECO já possui.
 
 ## Funcionalidade --
 Nossa estação, instalada diretamente na linha de produção do fornecedor, é o cérebro da captura de dados. 
