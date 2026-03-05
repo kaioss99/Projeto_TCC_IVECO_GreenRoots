@@ -21,23 +21,23 @@ Ela transforma a produção em inteligência, medindo o que realmente importa, e
 ### Modelo Lógico ---
 <img width="750" height="418" alt="Modelo_Lógico" src="https://github.com/user-attachments/assets/7b06c73e-1921-4a59-9e0c-863f28d0bd62" />
 
-## Funcionalidades Implementadas
+## Funcionalidades Implementadas --
 
-### Autenticação
-- Tela de login com e-mail e senha
-- Tela de cadastro de novo usuário
-- Validação de campos obrigatórios
-- Mensagens de erro para login inválido
+### Autenticação ---
+- Tela de login com e-mail e senha;
+- Tela de cadastro de novo usuário;
+- Validação de campos obrigatórios;
+- Mensagens de erro para login inválido.
 
-### Persistência de Dados
-- Banco de dados local SQLite (Passaporte_Digital.db)
-- Cadastro e autenticação de usuários persistidos entre sessões
+### Persistência de Dados ---
+- Banco de dados local SQLite (Passaporte_Digital.db);
+- Cadastro e autenticação de usuários persistidos entre sessões.
 
-### Dashboard
-- Tela inicial após login com nome do usuário
-- Botão de logout funcional
-- Preparado para integração com sensores Arduino (em desenvolvimento)
+### Dashboard ---
+- Tela inicial após login com nome do usuário;
+- Botão de logout funcional;
+- Preparado para integração com sensores Arduino (em desenvolvimento).
 
-### Arquitetura
-- Padrão MVVM (Model-View-ViewModel)
-- Separação de responsabilidades entre View, ViewModel e Data
+### Arquitetura ---
+- Padrão MVVM (Model-View-ViewModel);
+- Separação de responsabilidades entre View, ViewModel e Data.
