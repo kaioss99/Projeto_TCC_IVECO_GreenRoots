@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using AppGreenRoots.ViewModels;
 
 namespace AppGreenRoots.Views;
@@ -11,17 +10,17 @@ public partial class LoginView : Window
         InitializeComponent();
     }
 
+    // Atualiza a propriedade Senha no ViewModel toda vez que o usuário digita
     private void PbSenha_PasswordChanged(object sender, RoutedEventArgs e)
     {
         if (DataContext is LoginViewModel vm)
-            vm.Senha = ((PasswordBox)sender).Password;
+            vm.Senha = PbSenha.Password;
     }
 
-    protected override void OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs e)
+    // Botão X fechar janela
+    private void BtnFechar_Click(object sender, RoutedEventArgs e)
     {
-        base.OnMouseLeftButtonDown(e);
-        DragMove();
+        Application.Current.Shutdown();
     }
-
-    private void BtnFechar_Click(object sender, RoutedEventArgs e) => Close();
+    
 }

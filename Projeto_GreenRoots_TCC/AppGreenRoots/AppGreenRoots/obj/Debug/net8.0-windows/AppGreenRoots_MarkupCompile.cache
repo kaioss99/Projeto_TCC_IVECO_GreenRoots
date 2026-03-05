@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\dev_noite\RiderProjects\Projeto_TCC_IVECO_GreenRoots\Projeto_GreenRoots_TCC\AppGreenRoots\AppGreenRoots\obj\Debug\net8.0-windows\
+C:\Users\kaioa\RiderProjects\Projeto_TCC_IVECO_GreenRoots\Projeto_GreenRoots_TCC\AppGreenRoots\AppGreenRoots\obj\Debug\net8.0-windows\
 AppGreenRoots
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\dev_noite\RiderProjects\Projeto_TCC_IVECO_GreenRoots\Projeto_GreenRoots_TCC\AppGreenRoots\AppGreenRoots\App.xaml
-1320897291
+C:\Users\kaioa\RiderProjects\Projeto_TCC_IVECO_GreenRoots\Projeto_GreenRoots_TCC\AppGreenRoots\AppGreenRoots\App.xaml
+21205173200
 
-161071926218
-202-2081030340
-Views\LoginView.xaml;
+18-378488176
+216-1586547629
+Views\DashboardView.xaml;Views\LoginView.xaml;
 
 False
 

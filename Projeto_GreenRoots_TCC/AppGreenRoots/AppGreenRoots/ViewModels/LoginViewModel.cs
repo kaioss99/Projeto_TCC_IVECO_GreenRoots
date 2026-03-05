@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using AppGreenRoots.Commands;
+using AppGreenRoots.Data; // ← adicionar esse using
 
 namespace AppGreenRoots.ViewModels;
 
@@ -36,16 +37,58 @@ public class LoginViewModel : INotifyPropertyChanged
         AlternarModoCommand = new RelayCommand(_ => IsCadastro = !IsCadastro);
     }
 
+    // ✅ IMPLEMENTADO
     private void ExecutarLogin()
     {
-        
-        Mensagem = "Login ainda não implementado.";
+        Mensagem = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Senha))
+        {
+            Mensagem = "Preencha o e-mail e a senha.";
+            return;
+        }
+
+        var usuario = DatabaseHelper.AutenticarUsuario(Email, Senha);
+
+        if (usuario != null)
+        {
+            var dashboard = new Views.DashboardView();
+            dashboard.DataContext = new DashboardViewModel(usuario);
+            dashboard.Show();
+
+            foreach (System.Windows.Window w in System.Windows.Application.Current.Windows)
+                if (w is Views.LoginView) { w.Close(); break; }
+        }
+        else
+        {
+            Mensagem = "E-mail ou senha inválidos.";
+        }
     }
 
+    // ✅ IMPLEMENTADO
     private void ExecutarCadastro()
     {
-        
-        Mensagem = "Cadastro ainda não implementado.";
+        Mensagem = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(Nome) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Senha))
+        {
+            Mensagem = "Preencha todos os campos.";
+            return;
+        }
+
+        var sucesso = DatabaseHelper.CadastrarUsuario(Nome, Email, Senha);
+
+        if (sucesso)
+        {
+            Mensagem = "Cadastro realizado! Faça o login.";
+            IsCadastro = false; // volta para a tela de login
+            Nome  = string.Empty;
+            Senha = string.Empty;
+        }
+        else
+        {
+            Mensagem = "Erro ao cadastrar. Tente outro e-mail.";
+        }
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
