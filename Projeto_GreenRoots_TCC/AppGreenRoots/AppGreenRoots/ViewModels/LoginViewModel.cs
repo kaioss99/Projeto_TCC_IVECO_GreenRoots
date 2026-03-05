@@ -48,7 +48,7 @@ public class LoginViewModel : INotifyPropertyChanged
             return;
         }
 
-        var usuario = DatabaseHelper.AutenticarUsuario(Email, Senha);
+        var usuario = Database.AutenticarUsuario(Email, Senha);
 
         if (usuario != null)
         {
@@ -76,7 +76,7 @@ public class LoginViewModel : INotifyPropertyChanged
             return;
         }
 
-        var sucesso = DatabaseHelper.CadastrarUsuario(Nome, Email, Senha);
+        var sucesso = Database.CadastrarUsuario(Nome, Email, Senha);
 
         if (sucesso)
         {

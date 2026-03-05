@@ -2662,32 +2662,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kaioa\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\midor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kaioa\\RiderProjects\\Projeto_TCC_IVECO_GreenRoots\\Projeto_GreenRoots_TCC\\AppGreenRoots\\AppGreenRoots\\AppGreenRoots.csproj",
+      "projectUniqueName": "C:\\Users\\midor\\RiderProjects\\Projeto_TCC_GreenRoots\\Projeto_GreenRoots_TCC\\AppGreenRoots\\AppGreenRoots\\AppGreenRoots.csproj",
       "projectName": "AppGreenRoots",
-      "projectPath": "C:\\Users\\kaioa\\RiderProjects\\Projeto_TCC_IVECO_GreenRoots\\Projeto_GreenRoots_TCC\\AppGreenRoots\\AppGreenRoots\\AppGreenRoots.csproj",
-      "packagesPath": "C:\\Users\\kaioa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kaioa\\RiderProjects\\Projeto_TCC_IVECO_GreenRoots\\Projeto_GreenRoots_TCC\\AppGreenRoots\\AppGreenRoots\\obj\\",
+      "projectPath": "C:\\Users\\midor\\RiderProjects\\Projeto_TCC_GreenRoots\\Projeto_GreenRoots_TCC\\AppGreenRoots\\AppGreenRoots\\AppGreenRoots.csproj",
+      "packagesPath": "C:\\Users\\midor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\midor\\RiderProjects\\Projeto_TCC_GreenRoots\\Projeto_GreenRoots_TCC\\AppGreenRoots\\AppGreenRoots\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\kaioa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\midor\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2745,7 +2737,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\midor\\.dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
