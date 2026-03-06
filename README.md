@@ -1,6 +1,11 @@
 # Demanda Green Roots: O Desafio das Emissões de CO2
 Uma empresa tem uma meta clara de reduzir emissões, aquelas geradas em sua vasta cadeia de fornecedores de matéria-prima e componentes.
 
+## Integrantes --
+**Nome:** Luna Beatriz Alves, Kaio Alves Gonzaga Silva, Yhan Phillipe Barbosa Machado  <br>
+
+**Instrutor:** Frederico Martins Aguiar  <br>
+
 ## Principais Dores da Empresa --
 - Dados autodeclarados e não confiáveis;
 - Falta de visibilidade operacional;
