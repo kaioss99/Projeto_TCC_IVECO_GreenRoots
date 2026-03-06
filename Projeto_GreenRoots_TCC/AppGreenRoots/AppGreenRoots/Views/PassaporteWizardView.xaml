@@ -4,43 +4,159 @@
              Background="Transparent">
 
     <UserControl.Resources>
-        <SolidColorBrush x:Key="BgDark"   Color="#0D1A12"/>
-        <SolidColorBrush x:Key="BgCard"   Color="#13261A"/>
-        <SolidColorBrush x:Key="Green"    Color="#2ECC71"/>
-        <SolidColorBrush x:Key="White"    Color="#FFFFFF"/>
-        <SolidColorBrush x:Key="TextMuted" Color="#A0B8A8"/>
+        <SolidColorBrush x:Key="BgDark"    Color="#0D1A12"/>
+        <SolidColorBrush x:Key="BgCard"    Color="#13261A"/>
+        <SolidColorBrush x:Key="BgInput"   Color="#1C3326"/>
+        <SolidColorBrush x:Key="Green"     Color="#27AE60"/>
+        <SolidColorBrush x:Key="GreenHover" Color="#2ECC71"/>
+        <SolidColorBrush x:Key="White"     Color="#E8F5EE"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#7FB896"/>
         <SolidColorBrush x:Key="BorderClr" Color="#2A5038"/>
+
+        <!-- TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background"              Value="{StaticResource BgInput}"/>
+            <Setter Property="Foreground"              Value="{StaticResource White}"/>
+            <Setter Property="BorderBrush"             Value="{StaticResource BorderClr}"/>
+            <Setter Property="BorderThickness"         Value="1"/>
+            <Setter Property="Padding"                 Value="10,0"/>
+            <Setter Property="Height"                  Value="36"/>
+            <Setter Property="FontSize"                Value="13"/>
+            <Setter Property="FontFamily"              Value="Segoe UI"/>
+            <Setter Property="CaretBrush"              Value="{StaticResource Green}"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="{StaticResource Green}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Botão principal -->
+        <Style x:Key="BtnMain" TargetType="Button">
+            <Setter Property="Background"      Value="{StaticResource Green}"/>
+            <Setter Property="Foreground"      Value="#0D1A12"/>
+            <Setter Property="FontWeight"      Value="Bold"/>
+            <Setter Property="FontSize"        Value="13"/>
+            <Setter Property="FontFamily"      Value="Segoe UI"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor"          Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="bd" Background="{TemplateBinding Background}"
+                                CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bd" Property="Background" Value="{StaticResource GreenHover}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Botão outline -->
+        <Style x:Key="BtnOutline" TargetType="Button">
+            <Setter Property="Background"      Value="Transparent"/>
+            <Setter Property="Foreground"      Value="{StaticResource TextMuted}"/>
+            <Setter Property="FontSize"        Value="12"/>
+            <Setter Property="FontFamily"      Value="Segoe UI"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor"          Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="bd" CornerRadius="6"
+                                BorderBrush="{StaticResource BorderClr}" BorderThickness="1"
+                                Background="Transparent" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bd" Property="BorderBrush" Value="{StaticResource Green}"/>
+                                <Setter Property="Foreground" Value="{StaticResource Green}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- DataGrid -->
+        <Style TargetType="DataGrid">
+            <Setter Property="Background"            Value="{StaticResource BgCard}"/>
+            <Setter Property="Foreground"            Value="{StaticResource White}"/>
+            <Setter Property="BorderBrush"           Value="{StaticResource BorderClr}"/>
+            <Setter Property="BorderThickness"       Value="1"/>
+            <Setter Property="RowBackground"         Value="{StaticResource BgCard}"/>
+            <Setter Property="AlternatingRowBackground" Value="#182E1F"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#2A5038"/>
+            <Setter Property="VerticalGridLinesBrush"   Value="#2A5038"/>
+            <Setter Property="FontFamily"            Value="Segoe UI"/>
+            <Setter Property="FontSize"              Value="12"/>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background"   Value="#1A3D28"/>
+            <Setter Property="Foreground"   Value="{StaticResource TextMuted}"/>
+            <Setter Property="FontWeight"   Value="Bold"/>
+            <Setter Property="FontSize"     Value="11"/>
+            <Setter Property="Padding"      Value="10,6"/>
+            <Setter Property="BorderBrush"  Value="{StaticResource BorderClr}"/>
+            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Setter Property="Foreground" Value="{StaticResource White}"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#1A4D2E"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
 
     <Border CornerRadius="12" Background="{StaticResource BgDark}">
-        <Border.Effect>
-            <DropShadowEffect BlurRadius="30" ShadowDepth="0" Color="#000000" Opacity="0.5"/>
-        </Border.Effect>
-
-        <Grid Margin="18">
+        <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- Top bar -->
-            <Grid Grid.Row="0" Margin="0,0,0,12">
+            <!-- Cabeçalho -->
+            <Grid Grid.Row="0" Margin="0,0,0,16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="Gerar Passaporte Digital"
-                           FontSize="18" FontWeight="Bold"
+                           FontSize="17" FontWeight="Bold" FontFamily="Segoe UI"
                            Foreground="{StaticResource White}"
                            VerticalAlignment="Center"/>
 
-                <Button Grid.Column="1"
-                        Content="Voltar"
-                        Padding="14,6"
-                        Command="{Binding VoltarCommand}"
-                        Cursor="Hand"/>
+                <Button Grid.Column="1" Content="Voltar"
+                        Style="{StaticResource BtnOutline}"
+                        Padding="14,7"
+                        Command="{Binding VoltarCommand}"/>
             </Grid>
 
             <!-- Conteúdo -->
@@ -52,82 +168,108 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="0" Margin="0,0,0,10">
-                    <TextBlock Text="Energia (kWh)"
-                               Foreground="{StaticResource TextMuted}" />
-                    <TextBox Text="{Binding EnergiaKwh, UpdateSourceTrigger=PropertyChanged}"
-                             Height="34"/>
+                <!-- Energia -->
+                <StackPanel Grid.Row="0" Margin="0,0,0,14">
+                    <TextBlock Text="ENERGIA (kWh)" FontSize="10" FontWeight="Bold"
+                               Foreground="{StaticResource TextMuted}" FontFamily="Segoe UI"
+                               Margin="0,0,0,4"/>
+                    <TextBox Text="{Binding EnergiaKwh, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <GroupBox Grid.Row="1" Header="Adicionar material" Margin="0,0,0,10">
-                    <Grid Margin="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+                <!-- Adicionar material -->
+                <Border Grid.Row="1" Margin="0,0,0,14"
+                        Background="{StaticResource BgCard}"
+                        BorderBrush="{StaticResource BorderClr}" BorderThickness="1"
+                        CornerRadius="8" Padding="14">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Column="0" Margin="0,0,10,0">
-                            <TextBlock Text="Nome" Foreground="{StaticResource TextMuted}" />
-                            <TextBox Text="{Binding MaterialNome, UpdateSourceTrigger=PropertyChanged}" Height="34"/>
-                        </StackPanel>
+                        <TextBlock Grid.Row="0" Text="ADICIONAR MATERIAL"
+                                   FontSize="10" FontWeight="Bold" FontFamily="Segoe UI"
+                                   Foreground="{StaticResource TextMuted}" Margin="0,0,0,10"/>
 
-                        <StackPanel Grid.Column="1" Margin="0,0,10,0">
-                            <TextBlock Text="Peso" Foreground="{StaticResource TextMuted}" />
-                            <TextBox Text="{Binding MaterialPeso, UpdateSourceTrigger=PropertyChanged}" Height="34"/>
-                        </StackPanel>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="2" Margin="0,0,10,0">
-                            <TextBlock Text="Fator CO₂" Foreground="{StaticResource TextMuted}" />
-                            <TextBox Text="{Binding MaterialFator, UpdateSourceTrigger=PropertyChanged}" Height="34"/>
-                        </StackPanel>
+                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                <TextBlock Text="Nome" FontSize="11" FontFamily="Segoe UI"
+                                           Foreground="{StaticResource TextMuted}" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding MaterialNome, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
 
-                        <Button Grid.Column="3"
-                                Content="Adicionar"
-                                Padding="14,6"
-                                VerticalAlignment="Bottom"
-                                Command="{Binding AddMaterialCommand}"/>
+                            <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                                <TextBlock Text="Peso" FontSize="11" FontFamily="Segoe UI"
+                                           Foreground="{StaticResource TextMuted}" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding MaterialPeso, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Margin="0,0,10,0">
+                                <TextBlock Text="Fator CO₂" FontSize="11" FontFamily="Segoe UI"
+                                           Foreground="{StaticResource TextMuted}" Margin="0,0,0,4"/>
+                                <TextBox Text="{Binding MaterialFator, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+
+                            <Button Grid.Column="3" Content="Adicionar"
+                                    Style="{StaticResource BtnMain}"
+                                    Padding="14,0" Height="36"
+                                    VerticalAlignment="Bottom"
+                                    Command="{Binding AddMaterialCommand}"/>
+                        </Grid>
                     </Grid>
-                </GroupBox>
+                </Border>
 
-                <GroupBox Grid.Row="2" Header="Materiais adicionados">
-                    <DockPanel Margin="10">
-                        <Button DockPanel.Dock="Top"
-                                Content="Remover selecionado"
-                                Padding="12,6"
-                                Margin="0,0,0,8"
+                <!-- Materiais adicionados -->
+                <Border Grid.Row="2"
+                        Background="{StaticResource BgCard}"
+                        BorderBrush="{StaticResource BorderClr}" BorderThickness="1"
+                        CornerRadius="8" Padding="14">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Top" Text="MATERIAIS ADICIONADOS"
+                                   FontSize="10" FontWeight="Bold" FontFamily="Segoe UI"
+                                   Foreground="{StaticResource TextMuted}" Margin="0,0,0,10"/>
+
+                        <Button DockPanel.Dock="Top" Content="Remover selecionado"
+                                Style="{StaticResource BtnOutline}"
+                                Padding="12,6" Margin="0,0,0,8"
+                                HorizontalAlignment="Left"
                                 Command="{Binding RemoverMaterialCommand}"/>
 
                         <DataGrid ItemsSource="{Binding Materiais}"
                                   SelectedItem="{Binding SelectedMaterial}"
                                   AutoGenerateColumns="False"
                                   CanUserAddRows="False"
-                                  HeadersVisibility="Column"
-                                  Height="220">
+                                  HeadersVisibility="Column">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Matéria-prima" Binding="{Binding NomeMateria}" Width="*"/>
-                                <DataGridTextColumn Header="Peso" Binding="{Binding PesoUsado}" Width="120"/>
-                                <DataGridTextColumn Header="Fator" Binding="{Binding FatorCarbono}" Width="120"/>
-                                <DataGridTextColumn Header="CO₂" Binding="{Binding EmissaoMaterial}" Width="120" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Peso"          Binding="{Binding PesoUsado}"   Width="110"/>
+                                <DataGridTextColumn Header="Fator"         Binding="{Binding FatorCarbono}" Width="110"/>
+                                <DataGridTextColumn Header="CO₂"           Binding="{Binding EmissaoMaterial}" Width="110" IsReadOnly="True"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </DockPanel>
-                </GroupBox>
+                </Border>
 
-                <TextBlock Grid.Row="3"
-                           Text="{Binding Mensagem}"
-                           Foreground="#E74C3C"
-                           Margin="0,10,0,0"
-                           TextWrapping="Wrap"/>
+                <!-- Mensagem erro -->
+                <TextBlock Grid.Row="3" Text="{Binding Mensagem}"
+                           Foreground="#E74C3C" FontFamily="Segoe UI" FontSize="12"
+                           Margin="0,8,0,0" TextWrapping="Wrap"/>
             </Grid>
 
             <!-- Rodapé -->
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <StackPanel Grid.Row="2" Orientation="Horizontal"
+                        HorizontalAlignment="Right" Margin="0,14,0,0">
                 <Button Content="Gerar PDF"
-                        Padding="18,8"
-                        Command="{Binding GerarCommand}"
-                        Cursor="Hand"/>
+                        Style="{StaticResource BtnMain}"
+                        Padding="20,9"
+                        Command="{Binding GerarCommand}"/>
             </StackPanel>
         </Grid>
     </Border>

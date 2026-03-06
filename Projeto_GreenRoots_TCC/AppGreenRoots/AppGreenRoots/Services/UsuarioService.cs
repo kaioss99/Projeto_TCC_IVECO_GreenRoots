@@ -9,7 +9,6 @@ public class UsuarioService
     public bool Cadastrar(string nome, string email, string senha)
     {
         using var conn = Database.GetConnection();
-        conn.Open();
 
         var check = conn.CreateCommand();
         check.CommandText = "SELECT COUNT(*) FROM Usuario WHERE email=@e";
@@ -31,14 +30,12 @@ public class UsuarioService
         cmd.Parameters.AddWithValue("@s", senha);
 
         cmd.ExecuteNonQuery();
-
         return true;
     }
 
     public Usuario? Login(string email, string senha)
     {
         using var conn = Database.GetConnection();
-        conn.Open();
 
         var cmd = conn.CreateCommand();
         cmd.CommandText = @"
